@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Q1 3rd Graded Exercise ✨</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; margin-top: 50px;">
+
+   <h2> Q1 3rd Graded Exercise submitted by Ysa Rosario of 9 - Rubidium </h2>
+   
+   <p>Okay, let’s play a little guessing game 👀<br>
+   Enter a number from <b>1–100</b> and let’s see if you can crack it!</p>
+   
+   <input type="number" id="userGuess" placeholder="Type your guess here..." />
+   <button onclick="checkIt()" style="padding: 5px 10px; border-radius: 5px; cursor: pointer;">Check</button>
+
+   <p id="result" style="font-weight: bold; font-size: 18px; margin-top: 20px;"></p>
+
+   <script>
+       // secret random number lol 
+       var dNumber = Math.floor(Math.random() * 100) + 1;
+       console.log("DEBUG: The secret number is " + dNumber);
+
+       function checkIt(){
+           var guess = document.getElementById("userGuess").value; 
+           guess = Number(guess);
+
+           let message = "";
+
+           if (guess > dNumber) {
+               message = "Too high:( Try something smaller.";
+           } else if (guess < dNumber) {
+               message = "Too low :d Aim higher.";
+           } else if (guess === dNumber) {
+               message = "U got it ! Nice one. ";
+           } else {
+               message = "Hmm… that doesn’t look like a number..";
+           }
+
+           document.getElementById("result").innerHTML = message;
+       }
+   </script>
+
+</body>
+</html>
+

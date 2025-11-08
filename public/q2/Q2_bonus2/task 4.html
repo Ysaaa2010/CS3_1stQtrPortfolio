@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Ysa Rosario">
+  <title>Event Responder</title>
+</head>
+<body>
+  <h2>Event Responder</h2>
+
+
+  <button id="myButton">Click me!</button>
+
+  <div id="rotateBox" style="width:100px; height:100px; background:green; margin-top:20px;"></div>
+
+
+  <p id="keyMessage">Press any key...</p>
+
+  <script>
+    // Code didn't directly come from me! Citations for reference:
+    // Button click / box hover / style changes: W3Schools. (n.d.). onmouseover Event. W3Schools. https://www.w3schools.com/jsref/event_onmouseover.asp
+    // Keypress event / event.key usage: W3Schools. (n.d.). KeyboardEvent key Property. W3Schools. https://www.w3schools.com/Jsref/event_key_key.asp
+    // Random background color: GeeksforGeeks. (2025, August 5). How to change the background color after clicking the button in JavaScript? GeeksforGeeks. https://www.geeksforgeeks.org/javascript/how-to-change-the-background-color-after-clicking-the-button-in-javascript/
+    const button = document.getElementById("myButton");
+    button.onclick = function(){
+      button.textContent = "Hi (●'◡'●)!";
+    };
+
+    const box = document.getElementById("rotateBox");
+    box.onmouseover = function(){
+      box.style.transform = "rotate(45deg)";
+    };
+    box.onmouseout = function(){
+      box.style.transform = "rotate(0deg)";
+    };
+
+    const keyMsg = document.getElementById("keyMessage");
+    document.body.onkeypress = function(event){
+      keyMsg.textContent = "You pressed: " + event.key;
+
+    
+      const randomColor = "#" + Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0");
+      document.body.style.backgroundColor = randomColor;
+    };
+  </script>
+</body>
+</html>
+

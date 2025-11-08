@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Your Name">
+  <title>Press Any Key</title>
+</head>
+<body>
+  <h2>Press any key</h2>
+  <p id="keyDisplay">Refresh page to reset</p>
+
+  <script>
+    // Code didn't directly come from me! I got this from reading articles which are cited below:
+    // Citation 1 (random color): GeeksforGeeks. (2025, August 5). How to change the background color after clicking the button in JavaScript? GeeksforGeeks. https://www.geeksforgeeks.org/javascript/how-to-change-the-background-color-after-clicking-the-button-in-javascript/
+    // Citation 2 (event.key): Mozilla Contributors. (2025, September 18). KeyboardEvent: key property – Web APIs | MDN. Mozilla Developer Network. https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+
+    // Task 3 — keypress changes background and displays pressed key
+    document.body.onkeypress = changeColorPress;
+
+    function changeColorPress(event){
+      // generate a random color
+      const randomColor = "#" + Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0");
+
+      document.body.style.backgroundColor = randomColor;
+
+      // display which key was pressed
+      const display = document.getElementById("keyDisplay");
+      display.textContent = "You pressed: " + event.key;
+    }
+  </script>
+</body>
+</html>

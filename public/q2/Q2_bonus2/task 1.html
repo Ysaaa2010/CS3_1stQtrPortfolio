@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Ysa Rosario">
+  <title> Change Color if Clicked</title>
+</head>
+<body>
+  <h1>Click anywhere!</h1>
+
+  <script>
+    // Code didn't directly come from me! I got this from reading an article which is cited below:
+    // Citation: GeeksforGeeks. (2025, August 5). How to change the background color after clicking the button in JavaScript? GeeksforGeeks. https://www.geeksforgeeks.org/javascript/how-to-change-the-background-color-after-clicking-the-button-in-javascript/
+
+    document.onclick = changeColor;
+
+    function changeColor(){
+      const randomColor = "#" + Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0");
+
+      document.body.style.backgroundColor = randomColor;
+    }
+  </script>
+</body>
+</html>

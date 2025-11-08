@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Ysa Rosario">
+  <title>Reaction Game</title>
+</head>
+<body>
+  <h2>Reaction Game</h2>
+  <p>Press the matching key!</p>
+  <h1 id="randomLetter" style="font-size: 4rem;"></h1>
+  <p id="feedback"></p>
+
+  <script>
+    // Code didn't directly come from me! Citations:
+    // Random letter generation: GeeksforGeeks. (2025, August 5). How to generate a random letter in JavaScript. GeeksforGeeks. https://www.geeksforgeeks.org/how-to-generate-a-random-letter-in-javascript/
+    // Keypress event / event.key usage: W3Schools. (n.d.). KeyboardEvent key Property. W3Schools. https://www.w3schools.com/Jsref/event_key_key.asp
+
+    const letterDisplay = document.getElementById("randomLetter");
+    const feedback = document.getElementById("feedback");
+
+
+    function getRandomLetter(){
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const randomIndex = Math.floor(Math.random() * letters.length);
+      return letters[randomIndex];
+    }
+
+    let currentLetter = getRandomLetter();
+    letterDisplay.textContent = currentLetter;
+
+    document.body.onkeypress = function(event){
+      const pressedKey = event.key.toUpperCase();
+
+      if (pressedKey === currentLetter){
+        feedback.textContent = "Correct!";
+        
+        currentLetter = getRandomLetter();
+        letterDisplay.textContent = currentLetter;
+      } else {
+        feedback.textContent = "Try again!";
+      }
+    };
+  </script>
+</body>
+</html>
